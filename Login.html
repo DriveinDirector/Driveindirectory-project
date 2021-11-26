@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+  <script defer src="login.js"></script>
+  
+</head>
+<body>
+  
+
+  <h1>Login</h1>
+
+  
+  <form id="form_login">
+    
+        <input type ="text" autocomplete="off" id="Username" placeholder = "Username" />
+    
+    
+        <input type ="password" id="Password" placeholder = "Password" />
+    
+    
+        <button id ="submitbutton" type="submit" >login</button>
+    
+</form>
+
+<script>
+
+  const form = document.getElementById('form_login')
+  form.addEventListener('login',Userlogin)
+
+  async function Userlogin(event){
+    event.preventDefault()
+    const Username = document.getElementById('Username').value
+    const Password = document.getElementById('Password').value
+  }
+   const result = await fetch('/api/screen.js',{
+    method: 'POST',
+    headers: {
+
+      'Content-Type' :'package/json'
+
+},
+      body: JSON.stringify({
+
+        Username,
+        Password
+ })
+    
+ }).then((res) => res.json())
+
+ console.log(result)
+ 
+</script>
+
+  
+  
+  </main>
+</body>
+  
+</html>
